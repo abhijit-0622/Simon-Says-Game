@@ -15,3 +15,5 @@ The computer flashes a sequence of colors, and the player has to repeat the same
 
 <li>The level increases as long as the user matches the sequence correctly.</li>
 </ul>
+
+<a href="https://abhijit-0622.github.io/Simon-Says-Game/">Web link</a>
