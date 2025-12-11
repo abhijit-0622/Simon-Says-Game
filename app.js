@@ -1,7 +1,7 @@
 
 let container = document.querySelector('.container');
 let body = document.querySelector('body');
-let p = document.querySelector('p');
+let h3 = document.querySelector('h3');
 
 let userSeq = [];
 let randSeq = [];
@@ -13,8 +13,7 @@ let btns = ["red", "green", "orange", "violet"];
 
 document.addEventListener("keypress", function () {
     if (isGameStart == false) {
-        body.style.backgroundColor = "#fff";
-        level++;
+        body.classList.remove('red');
         isGameStart = true;
         startGame();
     }
@@ -29,7 +28,8 @@ let startGame = function () {
         
         randSeq.push(randColor);
         randflash(btn);
-        p.innerText = `Level : ${level}`;
+        level++;
+        h3.innerText = `Level : ${level}`;
     }
 }
 
@@ -54,7 +54,6 @@ let gameCal = function(event) {
 
 
 let nextLevel = function () {
-    level++
     userSeq = [];
     setTimeout(() => {
         startGame();
@@ -66,9 +65,10 @@ let allReset = function () {
     isGameStart = false;
     randSeq = [];
     userSeq = [];
+    let score = level;
     level = 0;
-    body.style.backgroundColor = 'red';
-    p.innerText = "To reset game press any key";
+    body.classList.add('red');
+    h3.innerHTML = `GAME OVER! Your score was ${score}.<br>Press any key to restart`;
 }
 
 let userflash = function (btn) {
