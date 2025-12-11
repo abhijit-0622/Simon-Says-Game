@@ -2,10 +2,13 @@
 let container = document.querySelector('.container');
 let body = document.querySelector('body');
 let h3 = document.querySelector('h3');
+let h2 = document.querySelector('h2');
 
 let userSeq = [];
 let randSeq = [];
 
+let highestScore = 0;
+let currScore = 0;
 let level = 0;
 let isGameStart = false;
 
@@ -13,6 +16,7 @@ let btns = ["red", "green", "orange", "violet"];
 
 document.addEventListener("keypress", function () {
     if (isGameStart == false) {
+
         body.classList.remove('red');
         isGameStart = true;
         startGame();
@@ -55,26 +59,36 @@ let gameCal = function(event) {
 
 let nextLevel = function () {
     userSeq = [];
-    setTimeout(() => {
-        startGame();
+    setTimeout(startGame, 1000);
+}
+
+let setHighestScore = function(currScore) {
+    highestScore = Math.max(highestScore, currScore);
+    h2.innerText = `Highest Score : ${highestScore}`
+}
+
+let gameOverFlash = function() {
+    body.classList.add('red');
+    setTimeout(function() {
+        body.classList.remove('red');
     }, 1000);
 }
 
 let allReset = function () {
-    console.log("Game over");
     isGameStart = false;
     randSeq = [];
     userSeq = [];
-    let score = level;
+    currScore = level;
+    setHighestScore(currScore);
+    gameOverFlash();
     level = 0;
-    body.classList.add('red');
-    h3.innerHTML = `GAME OVER! Your score was ${score}.<br>Press any key to restart`;
+    h3.innerHTML = `GAME OVER! Your score was ${currScore}.<br>Press any key to restart`;
 }
 
 let userflash = function (btn) {
-    btn.classList.add('flash')
+    btn.classList.add('correct')
     setTimeout(() => {
-        btn.classList.remove('flash');
+        btn.classList.remove('correct');
     }, 200);
 }
 
