@@ -3,6 +3,7 @@ let container = document.querySelector('.container');
 let body = document.querySelector('body');
 let h3 = document.querySelector('h3');
 let h2 = document.querySelector('h2');
+let startBtn = document.querySelector('button');
 
 let userSeq = [];
 let randSeq = [];
@@ -14,9 +15,8 @@ let isGameStart = false;
 
 let btns = ["red", "green", "orange", "violet"];
 
-document.addEventListener("keypress", function () {
+startBtn.addEventListener("click", function () {
     if (isGameStart == false) {
-
         body.classList.remove('red');
         isGameStart = true;
         startGame();
@@ -44,9 +44,9 @@ container.addEventListener("click", function (event) {
 })
 
 let gameCal = function(event) {
-    userflash(event.target);
     if (event.target && event.target.classList[1] == 'box') {
         userSeq.push(event.target.id);
+        userflash(event.target);
         if (userSeq[userSeq.length - 1] != randSeq[userSeq.length - 1]) {
             allReset();
         }
@@ -82,7 +82,8 @@ let allReset = function () {
     setHighestScore(currScore);
     gameOverFlash();
     level = 0;
-    h3.innerHTML = `GAME OVER! Your score was ${currScore}.<br>Press any key to restart`;
+    h3.innerHTML = `GAME OVER! Your score was ${currScore}.<br>Press restart button to restart`;
+    startBtn.innerText = "Restart";
 }
 
 let userflash = function (btn) {
