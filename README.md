@@ -5,7 +5,7 @@ The computer flashes a sequence of colors, and the player has to repeat the same
 
 <ul>
 
-<li>Press any key to start.</li>
+<li>Press any start button to start.</li>
 
 <li>A new random color is added each level.</li>
 

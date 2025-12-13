@@ -90,7 +90,7 @@ let userflash = function (btn) {
     btn.classList.add('correct')
     setTimeout(() => {
         btn.classList.remove('correct');
-    }, 200);
+    }, 100);
 }
 
 let randflash = function (btn) {
