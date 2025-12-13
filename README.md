@@ -5,7 +5,7 @@ The computer flashes a sequence of colors, and the player has to repeat the same
 
 <ul>
 
-<li>Press any start button to start.</li>
+<li>Press the start button to start.</li>
 
 <li>A new random color is added each level.</li>
 
@@ -16,4 +16,4 @@ The computer flashes a sequence of colors, and the player has to repeat the same
 <li>The level increases as long as the user matches the sequence correctly.</li>
 </ul>
 
-<a href="https://abhijit-0622.github.io/Simon-Says-Game/">Web link</a>
+<a href="https://abhijit-0622.github.io/Simon-Says-Game/">Click here to play</a>
